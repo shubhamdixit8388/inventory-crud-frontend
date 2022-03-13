@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (submit)="login()">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Username" formControlName="email" title="">
+        <mat-error *ngIf="loginForm.controls.email.errors">
+          <span *ngIf="loginForm.controls.email.errors.required">Required</span>
+          <span *ngIf="!loginForm.controls.email.errors.required
+                        && loginForm.controls.email.errors.email">Invalid email</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password" formControlName="password" title="">
+        <mat-error *ngIf="loginForm.controls.password.errors?.required">
+          Required
+        </mat-error>
+      </mat-form-field>
+      <div class="button">
+        <button type="submit" mat-button [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
