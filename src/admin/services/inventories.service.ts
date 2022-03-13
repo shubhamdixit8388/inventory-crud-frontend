@@ -6,6 +6,7 @@ import {ApiConstant} from '../../shared/constants/api.constant';
 import {ListWrapper} from '../../shared/models/list-wrapper.model';
 import {Filter} from '../../shared/models/filter.model';
 import {QueryParamsConstants} from '../../shared/constants/query-params.constant';
+import {Inventory} from '../models/inventory.model';
 
 @Injectable()
 export class InventoriesService {
@@ -26,5 +27,10 @@ export class InventoriesService {
   public getAll(filter: Filter): Observable<ListWrapper> {
     return this.httpClient.get<ListWrapper>(environment.baseUrl + ApiConstant.inventories,
       InventoriesService.convertToQueryParams(filter));
+  }
+
+  public add(inventory: Inventory): Observable<Inventory> {
+    return this.httpClient.post<Inventory>(environment.baseUrl + ApiConstant.inventories,
+      inventory);
   }
 }

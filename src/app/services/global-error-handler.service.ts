@@ -18,6 +18,6 @@ export class GlobalErrorHandlerService implements ErrorHandler {
     } else {
       this.snackBarService.error(error.message);
     }
+    console.error(error);
   }
-
 }

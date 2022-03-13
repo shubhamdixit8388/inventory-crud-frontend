@@ -11,6 +11,9 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {SharedModule} from '../shared/shared.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const appRoutes: Routes = [
   {
@@ -44,7 +47,10 @@ const appRoutes: Routes = [
     MatSortModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [
     InventoriesService

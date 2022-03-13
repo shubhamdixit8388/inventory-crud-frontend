@@ -2,3 +2,35 @@
   <img (click)="goBack()" alt="Back" class="mx-8 mb-4 go-back-icon" src="assets/img/back.svg">
   <h2 class="title">Add New Inventory</h2>
 </div>
+<form (submit)="addInventory()" [formGroup]="form" class="inventory-form">
+  <mat-form-field class="mb-8">
+    <mat-label>Name</mat-label>
+    <input type="text" [(ngModel)]="inventory.name" formControlName="name" autocomplete="off" matInput title=""/>
+    <mat-error *ngIf="form.controls.name.errors?.required">
+      Required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="mb-8">
+    <mat-label>Description</mat-label>
+    <input [(ngModel)]="inventory.description" formControlName="description" autocomplete="off"
+           type="text" matInput title=""/>
+    <mat-error *ngIf="form.controls.description.errors?.required">
+      Required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="mb-8">
+    <mat-label>Price</mat-label>
+    <input [(ngModel)]="inventory.price" formControlName="price" autocomplete="off"
+           matInput title="" type="number"/>
+    <mat-error *ngIf="form.controls.price.errors">
+                <span *ngIf="form.controls.price.errors.required">
+                  Required</span>
+      <span *ngIf="!form.controls.price.errors.required && form.controls.price.errors.negativeValue">
+                  Value should be greater than 0</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="my-16">
+    <button [disabled]="form.invalid" class="ml-16" type="submit" color="primary"
+            mat-raised-button>Add</button>
+  </div>
+</form>
