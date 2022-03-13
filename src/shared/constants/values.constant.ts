@@ -7,4 +7,5 @@ export class ValuesConstant {
   public static warn = 'Warn';
 
   public static toasterCloseTimer: 4000;
+  public static accessToken: 'accessToken';
 }
