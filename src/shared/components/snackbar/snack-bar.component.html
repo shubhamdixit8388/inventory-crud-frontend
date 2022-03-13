@@ -1,0 +1,9 @@
+<div class="snack-container">
+    <mat-icon>{{ getIcon }}</mat-icon>
+    <div class="font-size-16 toaster-subtitle">
+        <div class="mb-8 font-weight-700">{{configurationData.title}}</div>
+        {{ configurationData.message }} <span *ngIf="configurationData.value">{{configurationData.value}}</span>
+    </div>
+    <mat-icon class="cursor-pointer" *ngIf="configurationData.snackType === valuesConstants.error"
+     (click)="snackBarRef.dismiss()"> clear </mat-icon>
+</div>

@@ -1,0 +1,15 @@
+.snack-container {
+  display: flex;
+  align-items: center;
+  padding: 14px 15px;
+
+  .toaster-subtitle {
+    margin: 0 15px;
+    flex: 1;
+    word-break: break-word;
+  }
+
+  .mat-icon {
+    float: right;
+  }
+}

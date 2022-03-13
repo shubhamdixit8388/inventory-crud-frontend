@@ -13,3 +13,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .active {
   background-color: #ddd;
 }
+
+.snackbar-error {
+  background-color: #df0000 !important;
+}
+
+.snackbar-success {
+  background-color: #2d8d0d !important;
+}
+
+.snackbar-warning {
+  background-color: #eca200 !important;
+}
+
+.snackbar-info {
+  background-color: #1b81e5 !important;
+}
+
+.tooltip-info {
+  margin-top:0 !important;
+}
+
+.tooltip-infos {
+  margin-top: -15px !important;
+}
+
+.tooltip-infos-pumps {
+  margin-top: -30px !important;
+}

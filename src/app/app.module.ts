@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -9,6 +9,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {HttpClientModule} from '@angular/common/http';
+import {GlobalErrorHandlerService} from './services/global-error-handler.service';
+import {SnackBarService} from '../shared/components/snackbar/snack-bar.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,13 @@ import {HttpClientModule} from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
+    SnackBarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
