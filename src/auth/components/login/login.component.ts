@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
@@ -12,8 +12,10 @@ import {ValuesConstant} from '../../../shared/constants/values.constant';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

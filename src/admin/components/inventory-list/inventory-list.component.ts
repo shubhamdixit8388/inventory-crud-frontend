@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {InventoriesService} from '../../services/inventories.service';
-import {Inventory} from '../../models/inventory.model';
-import {ValuesConstant} from '../../../shared/constants/values.constant';
-import {MatTableDataSource} from '@angular/material/table';
-import {Filter} from '../../../shared/models/filter.model';
+import {Component, OnInit} from '@angular/core';
 import {Sort} from '@angular/material/sort';
 import {PageEvent} from '@angular/material/paginator';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ListWrapper} from '../../../shared/models/list-wrapper.model';
 import {MatDialog} from '@angular/material/dialog';
+import {MatTableDataSource} from '@angular/material/table';
+
 import {ConfirmationDialogComponent} from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
+import {InventoriesService} from '../../services/inventories.service';
+import {Inventory} from '../../models/inventory.model';
+import {ValuesConstant} from '../../../shared/constants/values.constant';
+import {Filter} from '../../../shared/models/filter.model';
+import {ListWrapper} from '../../../shared/models/list-wrapper.model';
 
 @Component({
   selector: 'app-inventory-list',

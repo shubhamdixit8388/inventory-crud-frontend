@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AdminComponent } from './admin.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AdminComponent} from './admin.component';
 import {RouterModule, Routes} from '@angular/router';
-import { InventoryListComponent } from './components/inventory-list/inventory-list.component';
-import { AddEditInventoryComponent } from './components/add-edit-inventory/add-edit-inventory.component';
+import {InventoryListComponent} from './components/inventory-list/inventory-list.component';
+import {AddEditInventoryComponent} from './components/add-edit-inventory/add-edit-inventory.component';
 import {MatButtonModule} from '@angular/material/button';
 import {InventoriesService} from './services/inventories.service';
 import {MatTableModule} from '@angular/material/table';
@@ -57,4 +57,5 @@ const appRoutes: Routes = [
     InventoriesService
   ]
 })
-export class AdminModule { }
+export class AdminModule {
+}

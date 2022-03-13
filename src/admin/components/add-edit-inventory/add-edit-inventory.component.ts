@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Inventory} from '../../models/inventory.model';
+import {ActivatedRoute, Router} from '@angular/router';
+
 import {ValidationService} from '../../../shared/services/validation.service';
 import {InventoriesService} from '../../services/inventories.service';
-import {ActivatedRoute, Router} from '@angular/router';
 import {QueryParamsConstants} from '../../../shared/constants/query-params.constant';
+import {Inventory} from '../../models/inventory.model';
 
 @Component({
   selector: 'app-add-edit-inventory',

@@ -1,7 +1,7 @@
-import { Injectable, NgZone } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {Injectable, NgZone} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
-import { SnackBarComponent } from './snack-bar.component';
+import {SnackBarComponent} from './snack-bar.component';
 import {ValuesConstant} from '../../constants/values.constant';
 
 @Injectable()
