@@ -4,7 +4,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Inventory} from '../../models/inventory.model';
 import {ValidationService} from '../../../shared/services/validation.service';
 import {InventoriesService} from '../../services/inventories.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {QueryParamsConstants} from '../../../shared/constants/query-params.constant';
 
 @Component({
   selector: 'app-add-edit-inventory',
@@ -18,7 +19,7 @@ export class AddEditInventoryComponent implements OnInit {
   public inventory = new Inventory();
   public isLoading: boolean;
 
-  constructor(private location: Location, private formBuilder: FormBuilder,
+  constructor(private location: Location, private formBuilder: FormBuilder, private router: Router,
               private inventoriesService: InventoriesService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
       if (params.id) {
@@ -51,10 +52,32 @@ export class AddEditInventoryComponent implements OnInit {
     this.location.back();
   }
 
+  public addEditInventory(): void {
+    this.isLoading = true;
+    this.inventoryId ? this.editInventory() : this.addInventory();
+  }
+
   public addInventory(): void {
     console.log(this.inventory);
     this.inventoriesService.add(this.inventory).subscribe(inventory => {
       console.log(inventory);
+      this.isLoading = false;
+      this.router.navigate([QueryParamsConstants.admin, QueryParamsConstants.inventories]).then();
+    }, error => {
+      this.isLoading = false;
+      throw Error(error.message);
+    });
+  }
+
+  public editInventory(): void {
+    console.log(this.inventory);
+    this.inventoriesService.update(this.inventory).subscribe(inventory => {
+      console.log(inventory);
+      this.isLoading = false;
+      this.router.navigate([QueryParamsConstants.admin, QueryParamsConstants.inventories]).then();
+    }, error => {
+      this.isLoading = false;
+      throw Error(error.message);
     });
   }
 }
