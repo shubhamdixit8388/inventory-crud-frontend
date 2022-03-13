@@ -1,5 +1,9 @@
 <mat-card>
   <mat-card-title>Login</mat-card-title>
+  <h5 class="information">
+    <span class="note">Note:</span>
+    Login API not implemented, enter any email and password
+  </h5>
   <mat-card-content>
     <form [formGroup]="loginForm" (submit)="login()">
       <mat-form-field>
@@ -17,7 +21,8 @@
         </mat-error>
       </mat-form-field>
       <div class="button">
-        <button type="submit" mat-button [disabled]="loginForm.invalid">Login</button>
+        <button type="submit" mat-button [disabled]="loginForm.invalid"
+                mat-raised-button class="mat-primary">Login</button>
       </div>
     </form>
   </mat-card-content>

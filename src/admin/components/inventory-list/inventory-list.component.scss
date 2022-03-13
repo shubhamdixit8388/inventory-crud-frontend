@@ -12,8 +12,7 @@
 }
 
 .mat-elevation-z8 {
-
-  height: calc(100vh - 163px);
+  height: calc(100vh - 200px);
 
   .mat-table {
     width: 100%;
@@ -25,7 +24,7 @@
     height: 76px;
     position: fixed;
     bottom: 15px;
-    width: calc(100vw - 49px);
+    width: calc(100vw - 66px);
     background: #fff;
     z-index: 9;
     border-radius: 12px;

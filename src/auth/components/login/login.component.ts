@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {ValuesConstant} from '../../../shared/constants/values.constant';
 
 @Component({
   selector: 'app-login',
@@ -24,10 +25,11 @@ export class LoginComponent implements OnInit {
   public login(): void {
     this.authService.login(this.loginForm.value).subscribe(user => {
       console.log(user);
+      localStorage.setItem(ValuesConstant.accessToken, user.token);
       this.router.navigate(['']).then();
     }, error => {
       this.router.navigate(['']).then();
-      throw Error(error.message);
+      throw Error('Login API not implemented');
     });
   }
 

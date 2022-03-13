@@ -8,6 +8,11 @@
     <button mat-button mat-raised-button class="mat-primary" routerLink="add">Add New</button>
   </div>
 </div>
+<h5 class="information">
+  <span class="note">Note:</span>
+  (Search, sort, pagination, delete, edit, add features are implemented,
+  but data will be not reflected because application is point to postman's mock API's)
+</h5>
 <div class="mat-elevation-z8">
   <div class="loading-shade" *ngIf="isLoading">
     <mat-spinner [diameter]="60"></mat-spinner>
@@ -24,7 +29,7 @@
     </ng-container>
     <ng-container matColumnDef="price">
       <th *matHeaderCellDef mat-header-cell mat-sort-header scope="row">Price</th>
-      <td *matCellDef="let element" mat-cell>{{element['price']}}</td>
+      <td *matCellDef="let element" mat-cell>${{element['price']}}</td>
     </ng-container>
     <ng-container matColumnDef="menu">
       <th *matHeaderCellDef mat-header-cell mat-sort-header scope="row"></th>

@@ -2,6 +2,11 @@
   <img (click)="goBack()" alt="Back" class="mx-8 mb-4 go-back-icon" src="assets/img/back.svg">
   <h2 class="title">{{inventoryId ? 'Edit' : 'Add New'}} Inventory</h2>
 </div>
+<h5 class="information">
+  <span class="note">Note:</span>
+  (Search, sort, pagination, delete, edit, add features are implemented,
+  but data will be not reflected because application is point to postman's mock API's )
+</h5>
 <form (submit)="addEditInventory()" [formGroup]="form" class="inventory-form">
   <div class="loading-shade" *ngIf="isLoading">
     <mat-spinner [diameter]="60"></mat-spinner>
