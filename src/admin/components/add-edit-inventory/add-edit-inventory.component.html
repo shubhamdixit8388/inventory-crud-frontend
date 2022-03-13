@@ -1,8 +1,8 @@
 <div class="title-row">
   <img (click)="goBack()" alt="Back" class="mx-8 mb-4 go-back-icon" src="assets/img/back.svg">
-  <h2 class="title">Add New Inventory</h2>
+  <h2 class="title">{{inventoryId ? 'Edit' : 'Add New'}} Inventory</h2>
 </div>
-<form (submit)="addInventory()" [formGroup]="form" class="inventory-form">
+<form (submit)="addEditInventory()" [formGroup]="form" class="inventory-form">
   <div class="loading-shade" *ngIf="isLoading">
     <mat-spinner [diameter]="60"></mat-spinner>
   </div>
@@ -34,8 +34,8 @@
       </mat-error>
     </mat-form-field>
     <div class="my-16">
-      <button [disabled]="form.invalid" class="ml-16" type="submit" color="primary"
-              mat-raised-button>Add</button>
+      <button [disabled]="form.invalid && isLoading" class="ml-16" type="submit" color="primary"
+              mat-raised-button>{{inventoryId ? 'Save' : 'Add'}}</button>
     </div>
   </ng-container>
 

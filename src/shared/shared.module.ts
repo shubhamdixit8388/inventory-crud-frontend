@@ -7,12 +7,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     SnackBarComponent,
-    SearchComponent
+    SearchComponent,
+    ConfirmationDialogComponent
   ],
   exports: [
     SearchComponent
@@ -23,7 +26,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ]
 })
 export class SharedModule {

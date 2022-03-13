@@ -4,4 +4,6 @@ export class QueryParamsConstants {
   public static sortBy = 'sortBy';
   public static orderBy = 'orderBy';
   public static searchString = 'searchString';
+  public static admin = 'admin';
+  public static inventories = 'inventories';
 }

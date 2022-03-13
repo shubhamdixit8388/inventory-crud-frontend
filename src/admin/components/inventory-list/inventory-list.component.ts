@@ -8,6 +8,8 @@ import {Sort} from '@angular/material/sort';
 import {PageEvent} from '@angular/material/paginator';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ListWrapper} from '../../../shared/models/list-wrapper.model';
+import {MatDialog} from '@angular/material/dialog';
+import {ConfirmationDialogComponent} from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-inventory-list',
@@ -22,7 +24,7 @@ export class InventoryListComponent implements OnInit {
   public isLoading: boolean;
 
   constructor(private inventoriesService: InventoriesService, private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -79,7 +81,30 @@ export class InventoryListComponent implements OnInit {
           {relativeTo: this.activatedRoute}).then();
         break;
       case ValuesConstant.actions.delete:
+        this.deleteConfirmation(inventoryIndex);
         break;
     }
+  }
+
+  private deleteConfirmation(inventoryIndex: number): void {
+    this.dialog.open(ConfirmationDialogComponent, {
+      data: {itemName: this.listWrapper.inventories[inventoryIndex].name}
+    }).afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.deleteInventory(inventoryIndex);
+      }
+    });
+  }
+
+  private deleteInventory(inventoryIndex: number): void {
+    const preservedData = JSON.parse(JSON.stringify(this.listWrapper.inventories));
+    this.listWrapper.inventories.splice(inventoryIndex, 1);
+    this.dataSource = new MatTableDataSource<Inventory>(this.listWrapper.inventories);
+    this.inventoriesService.delete(this.listWrapper.inventories[inventoryIndex].id).subscribe(() => {
+    }, error => {
+      this.listWrapper.inventories = preservedData;
+      this.dataSource = new MatTableDataSource<Inventory>(this.listWrapper.inventories);
+      throw Error(error.message);
+    });
   }
 }

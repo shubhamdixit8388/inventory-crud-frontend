@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+  <h1 class="title">
+    Delete
+  </h1>
+  <p>Are you sure, you want to delete <strong>"{{data.itemName}}"</strong></p>
+  <div class="btn-dialog">
+    <button color="primary" class="no-btn" mat-stroked-button (click)="dialogRef.close(false)">
+      No
+    </button>
+    <button color="primary" mat-raised-button (click)="dialogRef.close(true)">
+      Yes
+    </button>
+  </div>
+</div>
