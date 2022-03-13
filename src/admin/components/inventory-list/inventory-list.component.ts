@@ -70,4 +70,16 @@ export class InventoryListComponent implements OnInit {
       skipLocationChange: false
     }).then();
   }
+
+  public onMenuAction(action: string, inventoryIndex: number): void {
+    switch (action) {
+      case ValuesConstant.actions.edit:
+        this.router.navigate([ValuesConstant.actions.edit.toLowerCase(),
+            this.listWrapper.inventories[inventoryIndex].id],
+          {relativeTo: this.activatedRoute}).then();
+        break;
+      case ValuesConstant.actions.delete:
+        break;
+    }
+  }
 }

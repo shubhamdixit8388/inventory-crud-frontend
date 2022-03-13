@@ -5,7 +5,7 @@
       <app-search [placeholder]="'Search'" [value]="filter.searchString"
                   (searchString)="onSearch($event)"></app-search>
     </div>
-    <button mat-button mat-raised-button class="mat-primary" routerLink="add/1">Add New</button>
+    <button mat-button mat-raised-button class="mat-primary" routerLink="add">Add New</button>
   </div>
 </div>
 <div class="mat-elevation-z8">
@@ -25,6 +25,22 @@
     <ng-container matColumnDef="price">
       <th *matHeaderCellDef mat-header-cell mat-sort-header scope="row">Price</th>
       <td *matCellDef="let element" mat-cell>{{element['price']}}</td>
+    </ng-container>
+    <ng-container matColumnDef="menu">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header scope="row"></th>
+      <td *matCellDef="let element; let i = index" mat-cell class="text-right">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <img src="assets/img/kebab-vertical.svg" alt="Menu">
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onMenuAction(valuesConstant.actions.edit, i)">
+            {{valuesConstant.actions.edit}}
+          </button>
+          <button mat-menu-item (click)="onMenuAction(valuesConstant.actions.delete, i)">
+            {{valuesConstant.actions.delete}}
+          </button>
+        </mat-menu>
+      </td>
     </ng-container>
     <tr *matHeaderRowDef="valuesConstant.inventoryColumns; sticky: true" mat-header-row></tr>
     <tr *matRowDef="let row; columns: valuesConstant.inventoryColumns;" mat-row></tr>

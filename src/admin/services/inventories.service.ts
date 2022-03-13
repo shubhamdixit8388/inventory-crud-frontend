@@ -33,4 +33,10 @@ export class InventoriesService {
     return this.httpClient.post<Inventory>(environment.baseUrl + ApiConstant.inventories,
       inventory);
   }
+
+  public getById(id: number): Observable<Inventory> {
+    // using mock Api's
+    id = 2;
+    return this.httpClient.get<Inventory>(environment.baseUrl + ApiConstant.inventories + '/' + id);
+  }
 }

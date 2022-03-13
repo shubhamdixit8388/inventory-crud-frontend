@@ -14,6 +14,7 @@ import {SharedModule} from '../shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
         component: InventoryListComponent
       },
       {
-        path: 'inventories/add/:id',
+        path: 'inventories/add',
         component: AddEditInventoryComponent
       },
       {
@@ -34,7 +35,6 @@ const appRoutes: Routes = [
       }
     ]
   }
-
 ];
 
 @NgModule({
@@ -50,7 +50,8 @@ const appRoutes: Routes = [
     SharedModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [
     InventoriesService
