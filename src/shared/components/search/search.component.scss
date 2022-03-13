@@ -1,0 +1,44 @@
+::ng-deep {
+  .custom-search {
+    margin-right: 20px;
+
+    &.mat-form-field-appearance-outline {
+      .mat-form-field-outline {
+        color: transparent !important;
+        background-color: #fff;
+        box-shadow: 0 2px 20px 0 rgba(36, 47, 82, 0.12);
+
+        &.mat-form-field-outline-thick {
+          color: #516cc1 !important;
+        }
+      }
+    }
+
+    .mat-form-field-flex {
+      height: 42px;
+    }
+
+    .mat-form-field-wrapper {
+      padding: 0;
+
+      .mat-form-field-infix {
+        margin-left: 4px !important;
+        display: flex;
+        font-size: 14px;
+        padding-top: 2px !important;
+      }
+    }
+
+    .mat-icon-button {
+      position: relative;
+      top: 8px;
+      height: 20px !important;
+      width: 20px !important;
+
+      .clear-icon {
+        position: relative;
+        bottom: 10px;
+      }
+    }
+  }
+}

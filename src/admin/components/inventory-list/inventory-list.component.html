@@ -1,8 +1,12 @@
 <div class="title-row">
   <h2 class="title">Inventories</h2>
-  <button mat-button mat-raised-button class="mat-primary" routerLink="add/1">
-    Add New
-  </button>
+  <div class="search">
+    <div>
+      <app-search [placeholder]="'Search'" [value]="filter.searchString"
+                  (searchString)="onSearch($event)"></app-search>
+    </div>
+    <button mat-button mat-raised-button class="mat-primary" routerLink="add/1">Add New</button>
+  </div>
 </div>
 <div class="mat-elevation-z8">
   <div class="loading-shade" *ngIf="isLoading">

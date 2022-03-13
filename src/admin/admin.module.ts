@@ -10,6 +10,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {SharedModule} from '../shared/shared.module';
 
 const appRoutes: Routes = [
   {
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    SharedModule
   ],
   providers: [
     InventoriesService

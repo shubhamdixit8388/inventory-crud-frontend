@@ -1,0 +1,7 @@
+<mat-form-field appearance="outline" class="custom-search" floatLabel="never">
+  <input (ngModelChange)="searchTextUpdate.next($event)" [(ngModel)]="value"
+          [placeholder]="placeholder" autocomplete="off" matInput title="" type="text">
+  <button (click)="onClear()" *ngIf="value" aria-label="Clear" mat-button mat-icon-button matSuffix>
+    <img alt="Clear" class="clear-icon" height="12" src="assets/img/close.svg" width="12">
+  </button>
+</mat-form-field>

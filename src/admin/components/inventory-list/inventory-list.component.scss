@@ -1,6 +1,14 @@
 .title-row {
   display: flex;
   justify-content: space-between;
+
+  .search {
+    display: flex;
+  }
+
+  .mat-primary {
+    margin-top: 6px;
+  }
 }
 
 .mat-elevation-z8 {
