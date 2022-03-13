@@ -9,9 +9,6 @@
     </button>
   </div>
   <div>
-    <button mat-button [matMenuTriggerFor]="menu">Options</button>
-    <mat-menu #menu="matMenu">
-      <button routerLink="auth/login" mat-menu-item>Logout</button>
-    </mat-menu>
+    <button routerLink="auth/login" mat-button>Logout</button>
   </div>
 </mat-toolbar>

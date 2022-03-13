@@ -4,3 +4,33 @@
     Add New
   </button>
 </div>
+<div class="mat-elevation-z8">
+  <div class="loading-shade" *ngIf="isLoading">
+    <mat-spinner [diameter]="60"></mat-spinner>
+  </div>
+  <table [dataSource]="dataSource" aria-describedby="" mat-table matSort [matSortActive]="filter.sortBy"
+         matSortDirection="{{filter.orderBy}}" (matSortChange)="onSortChange($event)">
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header scope="row">Name</th>
+      <td *matCellDef="let element" mat-cell>{{element['name']}}</td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th *matHeaderCellDef mat-header-cell scope="row">Description</th>
+      <td *matCellDef="let element" mat-cell>{{element['description']}}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header scope="row">Price</th>
+      <td *matCellDef="let element" mat-cell>{{element['price']}}</td>
+    </ng-container>
+    <tr *matHeaderRowDef="valuesConstant.inventoryColumns; sticky: true" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: valuesConstant.inventoryColumns;" mat-row></tr>
+  </table>
+  <mat-paginator *ngIf="listWrapper?.inventories?.length"
+                 (page)="onPageChange($event)"
+                 [length]="listWrapper.total"
+                 [pageIndex]="filter.pageNumber - 1"
+                 [pageSizeOptions]="valuesConstant.pageSize"
+                 [disabled]="isLoading"
+                 [pageSize]="filter.pageSize">
+  </mat-paginator>
+</div>

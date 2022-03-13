@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_SNACK_BAR_DATA, MatSnackBarRef} from '@angular/material/snack-bar';
 import {ValuesConstant} from '../../constants/values.constant';
-import {IconConstant} from '../../constants/icon-constant';
+import {IconConstant} from '../../constants/icon.constant';
 
 @Component({
   selector: 'app-snackbar',

@@ -8,4 +8,9 @@ export class ValuesConstant {
 
   public static toasterCloseTimer: 4000;
   public static accessToken: 'accessToken';
+
+  public static inventoryColumns = ['name', 'description', 'price'];
+  public static pageSize = [2, 10, 25, 50, 100];
+  public static DEFAULT_PAGE_NUMBER = 1;
+  public static DEFAULT_PAGE_SIZE = 10;
 }
