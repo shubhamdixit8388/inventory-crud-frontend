@@ -1,0 +1,13 @@
+.title {
+  color: gray;
+  height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .admin {
+    margin-left: 4px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
