@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "inventory-crud"
+    }
+  },
+  "defaultProject": "inventory-crud",
+  "cli": {
+    "analytics": false
+  }
 }
